@@ -1,5 +1,5 @@
 # NBA_Four_Factors
-<!-- NBA Four Factors
+NBA Four Factors
 Thesis
 Dean Oliver has posited a way of looking at what drives wins in a game, known as the Four Factor. The view is that there are Four Factors that drive wins for a team, on order of importance:
 
@@ -21,4 +21,4 @@ Next, we will look at the impact of travel. Travel can take a lot out of players
 There are some bonus elements that could be included: how does shot selection vary as length of time on the road changes - do teams tend to shoot more 3's while on the road than home or increase the number of 3's as the length of the road trip increases? How does weather play a factor - on flight delay situations, is hustle impacted?
 
 First step is to build a web scraper that gets the data from the website into a manageable format, testing out a sample into a pandas dataframe
-Goal for today is to get my web scrape working and get through a good % of the total download I am looking to get through. I believe I have identified all the key factors I am looking to download and last night I got my first dataframe in pandas from an initial one game scrape of data. -->
+Goal for today is to get my web scrape working and get through a good % of the total download I am looking to get through. I believe I have identified all the key factors I am looking to download and last night I got my first dataframe in pandas from an initial one game scrape of data.

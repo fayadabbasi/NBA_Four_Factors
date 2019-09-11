@@ -137,7 +137,7 @@ def four_factors_output():
     year, month, day, team = 2018, 10, 19, 'ORL'
     uniq_id = str(year)+str(month)+str(day)+team
     append_data = four_factors_dataframe_test.loc[[14,48],:]
-    append_data['id'] = uniq_id
+    append_data['id_t'] = uniq_id
     return append_data
 
 

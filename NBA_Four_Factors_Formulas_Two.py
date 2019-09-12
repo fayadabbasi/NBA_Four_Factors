@@ -7,7 +7,11 @@ import time
 import pandas as pd
 import numpy as np
 
-def web_scrape(year,month,day,team):    
+def web_scrape(inputlist):    
+    year = inputlist[:4]
+    month = inputlist[4:6]
+    day = inputlist[6:8]
+    team = inputlist[9:]
     web_template = (f'https://www.basketball-reference.com/boxscores/{year}{month}{day}0{team}.html')
     data = requests.get(web_template)
     soup = BeautifulSoup(data.text, 'html.parser')
@@ -21,7 +25,11 @@ def web_scrape(year,month,day,team):
     stats['Player'] = player
     return stats
 
-def team_summary(year,month,day,team):    
+def team_summary(inputlist):    
+    year = inputlist[:4]
+    month = inputlist[4:6]
+    day = inputlist[6:8]
+    team = inputlist[9:]
     web_template = (f'https://www.basketball-reference.com/boxscores/{year}{month}{day}0{team}.html')
     data = requests.get(web_template)
     soup = BeautifulSoup(data.text, 'html.parser')
@@ -48,9 +56,13 @@ def team_summary(year,month,day,team):
     teams_scores['Date'] = date_list
     return teams_scores
 
-def four_factors_output(year,month,day,team):
-    stats = web_scrape(year,month,day,team)
-    teams_scores = team_summary(year,month,day,team)
+def four_factors_output(inputlist):
+    year = inputlist[:4]
+    month = inputlist[4:6]
+    day = inputlist[6:8]
+    team = inputlist[9:]
+    stats = web_scrape(inputlist)
+    teams_scores = team_summary(inputlist)
     test = stats[['Player','MP','FG', 'FGA', '3P', 'FT', 'ORB', 'TOV', 'FTA', 'DRB', 'PTS']]    
     test_list = ['FG', 'FGA', '3P', 'FT', 'ORB', 'TOV', 'FTA', 'DRB']
     test = test.dropna()
@@ -68,7 +80,8 @@ def four_factors_output(year,month,day,team):
     four_factors_dataframe = test[['Player', 'eFG', 'TOV_per', 'ORB_per', 'FTr', 'Date']]
     
     uniq_id = str(year)+str(month)+str(day)+team
-    append_data = test.loc[[14,48],:]
+    append_data = test[test['Player']==teams_scores['Team_Name'][0]]
+    append_data = append_data.append(test[test['Player']==teams_scores['Team_Name'][1]])
     append_data['id_t'] = uniq_id
     append_data['loc'] = team
     return append_data

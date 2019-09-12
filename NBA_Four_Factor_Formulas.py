@@ -129,15 +129,15 @@ def four_factors_output():
     
     
     four_factors_dataframe_test['eFG'] = (four_factors_dataframe_test['FG'] + 0.5* four_factors_dataframe_test['3P']) / four_factors_dataframe_test['FGA']
-    four_factors_dataframe_test['TOV_per'] = four_factors_dataframe_test['TOV'] / (four_factors_dataframe_test['FGA'] + 0.44 * four_factors_dataframe_test['FTA'] + four_factors_dataframe_test['TOV'])
-    four_factors_dataframe_test['ORB_per'] = four_factors_dataframe_test['ORB'] / (four_factors_dataframe_test['ORB'] + four_factors_dataframe_test['DRB'])
+    four_factors_dataframe_test['TOV%'] = four_factors_dataframe_test['TOV'] / (four_factors_dataframe_test['FGA'] + 0.44 * four_factors_dataframe_test['FTA'] + four_factors_dataframe_test['TOV'])
+    four_factors_dataframe_test['ORB%'] = four_factors_dataframe_test['ORB'] / (four_factors_dataframe_test['ORB'] + four_factors_dataframe_test['DRB'])
     four_factors_dataframe_test['FTr'] = four_factors_dataframe_test['FT'] / four_factors_dataframe_test['FGA']
-    four_factors_dataframe = four_factors_dataframe_test[['Player', 'eFG', 'TOV_per', 'ORB_per', 'FTr', 'Date']]
+    four_factors_dataframe = four_factors_dataframe_test[['Player', 'eFG', 'TOV%', 'ORB%', 'FTr', 'Date']]
     
     year, month, day, team = 2018, 10, 19, 'ORL'
     uniq_id = str(year)+str(month)+str(day)+team
     append_data = four_factors_dataframe_test.loc[[14,48],:]
-    append_data['id_t'] = uniq_id
+    append_data['id'] = uniq_id
     return append_data
 
 

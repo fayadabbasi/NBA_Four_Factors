@@ -6,6 +6,12 @@ import time
 
 import pickle
 
+season = [2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019]
+# this probably needs to be broken down to manageable size - maybe as a dictionary for seasons
+months = ['october','november', 'december', 'january', 'february', 'march', 'april', 'may', 'june']
+
+
+
 pages = []
 just_game_tag = []
 for year in [2018,2019]:
@@ -16,7 +22,7 @@ for year in [2018,2019]:
         for tag in soup.find_all("a", string="Box Score"):
             pages.append('https://www.basketball-reference.com/boxscores/{}'.format(tag['href']))
             just_game_tag.append(tag['href'][11:-5])
-        time.sleep(10)
+        time.sleep(15)
         
 
 with open('tags.pkl', 'wb') as fp:

@@ -210,6 +210,15 @@ The mean Turnover Percent for away games is 0.126 and the standard deviation is 
 Performing a t-test on the two samples, the t-statistic is -1.13 and the p-value is 0.2579
 ```
 
+### Team leaders 
+
+![alt text](https://github.com/fayadabbasi/NBA_Four_Factors/tree/master/tables_nba/eFG_percent_team_lead_20172018.png "team leaders for effective field goals")
+
+![alt text](https://github.com/fayadabbasi/NBA_Four_Factors/tree/master/tables_nba/ftr_team_lead_20172018.png "team leaders for free throw rate goals")
+
+![alt text](https://github.com/fayadabbasi/NBA_Four_Factors/tree/master/tables_nba/orb_team_lead_20172018.png "team leaders for offensive rebound percent goals")
+
+![alt text](https://github.com/fayadabbasi/NBA_Four_Factors/tree/master/tables_nba/tov_team_lead_20172018.png "team leaders for turnover rate goals")
 
 # Future Analysis
 

@@ -178,6 +178,37 @@ Performing a t-test on the two samples, the t-statistic is 5.0 and the p-value i
 
 ```
 
+### Free Throw Rate
+
+![alt text](https://github.com/fayadabbasi/NBA_Four_Factors/blob/master/ftr_histograms.png "free throw rate for home in blue and away in orange")
+
+```
+The mean Free Throw Rate for home games is 0.201 and the standard deviation is 0.07566
+The mean Free Throw Rate for away games is 0.195 and the standard deviation is 0.07421
+Performing a t-test on the two samples, the t-statistic is 2.2 and the p-value is 0.02818
+
+```
+
+### Offensive Rebound percent
+
+![alt text](https://github.com/fayadabbasi/NBA_Four_Factors/blob/master/orb_histograms.png "offensive rebound percent for home in blue and away in orange")
+
+```
+The mean Offensive Rebound Percent for home games is 0.222 and the standard deviation is 0.07029
+The mean Offensive Rebound Percent for away games is 0.223 and the standard deviation is 0.07142
+Performing a t-test on the two samples, the t-statistic is -0.432 and the p-value is 0.6656
+```
+
+
+### Turnover percent
+
+![alt text](https://github.com/fayadabbasi/NBA_Four_Factors/blob/master/tov_histograms.png "turnover percent for home in blue and away in orange")
+
+```
+The mean Turnover Percent for home games is 0.124 and the standard deviation is 0.03244
+The mean Turnover Percent for away games is 0.126 and the standard deviation is 0.03385
+Performing a t-test on the two samples, the t-statistic is -1.13 and the p-value is 0.2579
+```
 
 
 # Future Analysis

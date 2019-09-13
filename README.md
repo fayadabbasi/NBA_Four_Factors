@@ -27,14 +27,16 @@ Looking at home teams and away teams, I will have two samples of:
 
 > Regular Season: 82 games per team * 30 teams / 2 teams play at a time ==> 1230 
 
-> Playoffs: will vary 
+> Playoffs: will vary but for this season was 92
+
+> Total: 1,230 + 92 = 1,322
 
 I will perform 4 t-tests, one for each of the four factors. My **null hypothesis** for each test is there is no difference between home games and away games as it relates to the four factors. 
 My **alternative hypothesis** is that there is a difference. I am using a two sided t-test as variance to either side of the distribution is relevant. My degrees of freedom are equal to my total sample observations (1,322 home games vs 1,322 away games) minus one but given the size of the samples being tested, I have not made ddof adjustments. 
 
 ***
 
-# Techniques used
+# Techniques Used
 
 I first scraped data by team for the 2017-2018 season from www.basketball-reference.com. I used pickle to create a series of unique identifiers for each game box score URL. I then set up a script to run a .py file with three functions. 
 
@@ -192,7 +194,7 @@ Performing a t-test on the two samples, the t-statistic is 2.2 and the p-value i
 
 ```
 
-### Offensive Rebound percent
+### Offensive Rebound Percent
 
 ![alt text](https://github.com/fayadabbasi/NBA_Four_Factors/blob/master/orb_histograms.png "offensive rebound percent for home in blue and away in orange")
 
@@ -203,7 +205,7 @@ Performing a t-test on the two samples, the t-statistic is -0.432 and the p-valu
 ```
 
 
-### Turnover percent
+### Turnover Percent
 
 ![alt text](https://github.com/fayadabbasi/NBA_Four_Factors/blob/master/tov_histograms.png "turnover percent for home in blue and away in orange")
 
@@ -213,7 +215,7 @@ The mean Turnover Percent for away games is 0.126 and the standard deviation is 
 Performing a t-test on the two samples, the t-statistic is -1.13 and the p-value is 0.2579
 ```
 
-### Team leaders 
+### Team Leaders 
 
 ![alt text](tables_nba/efg_team_lead_20172018.png "team leaders for effective field goals" )
 
@@ -233,11 +235,13 @@ Additional tests to perform could include:
 
 > how much do each of the four factors contribute to determining the outcome of a game? How has that evolved over the past 10 years? 15 years?
 
-> which teams lead in each of the four factors? which teams constitute the bottom of the league for those factors?
+> which teams have the largest improvement year over year on the four factors and how did that translate to improved win totals
 
 > visualize how shot distribution has resulted in hollowing out of the mid-range jump shot in the past 15 years. 
 
-# Technologies demonstrated
+And much more. This is a pretty rich data set and with multiple years of data, I think there are endless questions to explore. 
+
+# Technologies Demonstrated
 
  - Beautiful Soup
  - Pandas DataFrames

@@ -170,6 +170,8 @@ Perhaps equally fascinating was that the effective field goal rate *did* show a 
 ### Effective Field Goal Percentage
 
 ![alt text](https://github.com/fayadabbasi/NBA_Four_Factors/blob/master/efg_histograms.png "effective FG% for home in blue and away in orange")
+![alt text](https://github.com/fayadabbasi/NBA_Four_Factors/blob/master/combo_efg.png "effective FG% for home in blue and away in orange")
+
 
 ```
 The mean effective FG% for home games is 0.528 and the standard deviation is 0.0646
@@ -181,6 +183,7 @@ Performing a t-test on the two samples, the t-statistic is 5.0 and the p-value i
 ### Free Throw Rate
 
 ![alt text](https://github.com/fayadabbasi/NBA_Four_Factors/blob/master/ftr_histograms.png "free throw rate for home in blue and away in orange")
+![alt text](https://github.com/fayadabbasi/NBA_Four_Factors/blob/master/combo_ftr.png "free throw rate for home in blue and away in orange")
 
 ```
 The mean Free Throw Rate for home games is 0.201 and the standard deviation is 0.07566

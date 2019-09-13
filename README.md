@@ -40,6 +40,28 @@ I first scraped data by team for the 2017-2018 season from www.basketball-refere
 
 1. The first function scraped the specified page and got team box score data. This includes all the box score data for each player and team summaries. Note that I had to create two lists, one for team statistics and a separate one for the player or team name, and then combine them. My output was a pandas dataframe. 
 
+```
+web_template = (f'https://www.basketball-reference.com/boxscores/{year}{month}{day}0{team}.html')
+data = requests.get(web_template)
+soup = BeautifulSoup(data.text, 'html.parser')
+# scrape the site
+    
+    
+headers_four_factors = [th.getText() for th in soup.findAll('tr', limit=2)[1].findAll('th')]
+rows = soup.findAll('tr')[2:]
+player_stats1 = [[td.getText() for td in rows[i].findAll('td')] for i in range(len(rows))]
+player_names1 = [[td.getText() for td in rows[i].findAll('th')] for i in range(len(rows))]
+# run some list comprehensions to identify the headers for the table, the player statistics and separately 
+# the player name since that is not included in player statistics
+    
+stats = pd.DataFrame(player_stats1, columns = headers_four_factors[1:])
+player = pd.DataFrame(player_names1)
+player = player[0][:66]
+stats['Player'] = player
+# create a statistics dataframe and a player name dataframe and then append the player name to the stats
+# return the assembled dataframe
+```
+
 2. The second function scraped a different part of the page with a summary box score. This included the teams that played, the location the game was played and time, and the final score. The output was a pandas dataframe. 
 
 3. My third function took the above two dataframes and combined it into the information used for my analysis. Specifically, I needed to take team name from the second dataframe and combine it with the summary statistics from the first dataframe. The output was a pandas dataframe. 
@@ -81,21 +103,3 @@ Additional tests to perform could include:
 # References
 
 Thanks to Joseph Gartner, Dan Rupp, Brent Goldberg, Keatra Nesbitt from Galvanize for assistance in this process. Thanks to the many bloggers that have written about the Four Factors, including Square2020, Savvas Tjortjoglou, and others. Thanks to Basketball Reference for the data.  
-
-
-
-
-
-
-
-
-We will explore several things in this project. First, how much variance do these four factors play per game and are there trends in the mix over the past several years of the NBA? With the mix of shots increasing towards 3 PTs, it would seem that eFG% has increased as a factor. Also, what is the standard deviation of each factor? It would seem that hustle factors such as turnover % and rebounds could have a wider standard deviation than the other factors.
-
-One factor to take into consideration is what is a team. Given free agency and trades, the composition of a team varies year to year as well as within the season. So identifying what the composition of a team is based on the total 240 minutes played per game is important to determine how that specific team's four factors vary.
-
-Next, we will look at the impact of travel. Travel can take a lot out of players and between turnovers and offensive rebounds, which are largely "hustle" factors, how does that impact a team. We will look at the impact on the first game of a road trip, second, third, and fourth. It will be interesting to see if the "team" changes as the length of a road trip increases or if the hustle variables exhibit more variance than normalized variance.
-
-There are some bonus elements that could be included: how does shot selection vary as length of time on the road changes - do teams tend to shoot more 3's while on the road than home or increase the number of 3's as the length of the road trip increases? How does weather play a factor - on flight delay situations, is hustle impacted?
-
-First step is to build a web scraper that gets the data from the website into a manageable format, testing out a sample into a pandas dataframe
-Goal for today is to get my web scrape working and get through a good % of the total download I am looking to get through. I believe I have identified all the key factors I am looking to download and last night I got my first dataframe in pandas from an initial one game scrape of data.

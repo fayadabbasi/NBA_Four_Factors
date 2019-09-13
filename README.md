@@ -2,35 +2,56 @@
 
 ## Thesis
 
+As a fan of NBA basketball, I have been fascinated by the impact analytics has had on the game over the past 10-15 years. Following the insight that 3pts > 2pts, teams started to significantly emphasize shooting 3pt shots, largely at the expense of the mid-range 2pt shot. There was a lot of research done into what key factors led to wins vs losses. The thesis I wanted to explore was do those factors look similar for home teams versus away teams and if not, which ones show variance. My bias was that road teams would not be as energetic as home teams and things like rebounding and turnovers could be an advantage for home teams. So I looked at the four factors and tested each to see if those two samples are statistically different.  
+
+## Background
+
 Dean Oliver, considered one of the innovators and early practicioner of applying statistics to basketball, has posited a way of looking at what drives wins in an NBA game, known as the Four Factor. His research shows there are Four Factors that drive wins for a team, in order of importance:
 
-1 **Effective FG%**: eFG% is an adjusted FG% view. The formula is (FGM + 0.5 * 3PFG) / FGA. The more shots you make, the better your chances of winning. Dean has estimated that this factor weighting is about 40%.
+1 **Effective FG%**: effective field goal percent is an adjustment to the overall field goal statistic. The formula is (FGM + 0.5 * 3PFGM) / FGA. The more shots you make, the better your chances of winning and a 3 point made is 50% more valuable than 2 points. Dean has estimated that this factor weighting is about 40%.
 
-2 **Turnover %**: TOV% is the rate at which the ball is turned over. It is calculated as TOV / (FGA + 0.44 * FTA + TOV). TOV % is estimated at a weighting of 25%.
+2 **Turnover %**: Turnover percent is the rate at which the ball is turned over. A turnover results in zero attempts to score so you are not giving yourself a chance to add points when you turn the ball over. It is calculated as TOV / (FGA + 0.44 * FTA + TOV). TOV % is estimated at a weighting of 25%.
 
-3 **Offensive Rebound %**: Offensive rebounds give you additional opportunities. As stated, they are accounted for as ORB / (ORB + DRB). The weighting estimated is 20%.
+3 **Offensive Rebound %**: Offensive rebounds give you additional opportunities and conversely limit the other team from future opportunities. ORB is calculated as ORB / (ORB + DRB). The weighting estimated is 20%.
 
-4 **FT Rate**: Finally, free throw rate is the amount of free throws a team had in a game. It is calculated as FT / FGA and its estimated weighting is 15%.
+4 **FT Rate**: Finally, free throw rate is the amount of free throws a team had in a game. This is a metric that is not captured in field goals but is definitely a contributor to points scored. It is calculated as FT / FGA and its estimated weighting is 15%.
+
+In this study, I will not analyze how effective these four factors are to determine a win or loss. The literature suggests they have a very strong predictive capability and we can return to how strong in a future analysis. 
 
 ***
 
-# What are we testing for?
+# What am I testing for?
 
-We are looking to perform a relatively simple analysis: *Do NBA teams have a home court advantage?* We will analyze data from the 2017-2018 season, including playoffs. 
-Looking at home teams and away teams, we will have two samples of:
+I am looking to determine the following: *Do NBA teams have a home court advantage?* I will analyze data from the 2017-2018 season, including playoffs. 
+Looking at home teams and away teams, I will have two samples of:
 
 > Regular Season: 82 games per team * 30 teams / 2 teams play at a time ==> 1230 
 
 > Playoffs: will vary 
 
-We will perform 4 t-tests, one for each of the four factors. Our **null hypothesis** for each test is there is no difference between home games and away games as it relates to the four factors. 
-Our **alternative hypothesis** is that there is a difference. We are using a two sided test with two degrees of freedom. 
+I will perform 4 t-tests, one for each of the four factors. My **null hypothesis** for each test is there is no difference between home games and away games as it relates to the four factors. 
+My **alternative hypothesis** is that there is a difference. I am using a two sided t-test with two degrees of freedom. 
 
 ***
 
-# Data used
+# Techniques used
 
-We first scraped data by team for the 2017-2018 season from www.basketball-reference.com. We used pickle to create a series of unique identifiers for each game box score URL.   
+I first scraped data by team for the 2017-2018 season from www.basketball-reference.com. I used pickle to create a series of unique identifiers for each game box score URL. I then set up a script to run a .py file with three functions. 
+
+1. The first function scraped the specified page and got team box score data. This includes all the box score data for each player and team summaries. Note that I had to create two lists, one for team statistics and a separate one for the player or team name, and then combine them. My output was a pandas dataframe. 
+
+2. The second function scraped a different part of the page with a summary box score. This included the teams that played, the location the game was played and time, and the final score. The output was a pandas dataframe. 
+
+3. My third function took the above two dataframes and combined it into the information used for my analysis. Specifically, I needed to take team name from the second dataframe and combine it with the summary statistics from the first dataframe. The output was a pandas dataframe. 
+
+I took the output of third dataframe and fed that into a PostGresSQL database in a Docker container. I ran the script on my local machine with an approximate run time of 5 hours, as I found I needed to add a sleep time of 15 seconds between scrapes to avoid getting timed out. 
+
+After the 2017-2018 data was entered, I had a total of 2,644 rows of data to analyze. I then pulled the data into two pandas dataframe, one for home games and another for away games. I plotted histograms of the calculated four factors for home and away games. 
+
+# Findings
+
+I was surprised to see how my normal distributions appeared, well normal. The Free Throw Rate distributions exhibited a slight right skew but otherwise the distributions appeared textbook. I then performed a t-test for each factor. As stated in the thesis, my bias was that a larger variance between home and away teams existed for hustle factors, such as rebounding and turnovers. What the data showed was the opposite. Turnover percent and offensive rebounding percent had p-values of xxx and xxx, respectively.  
+
 
 
 

@@ -1,6 +1,6 @@
-# NBA_Four_Factors
+# NBA Four Factors
 
-##Thesis
+## Thesis
 
 Dean Oliver, considered one of the innovators and early practicioner of applying statistics to basketball, has posited a way of looking at what drives wins in an NBA game, known as the Four Factor. His research shows there are Four Factors that drive wins for a team, in order of importance:
 
@@ -12,16 +12,21 @@ Dean Oliver, considered one of the innovators and early practicioner of applying
 
 4 **FT Rate**: Finally, free throw rate is the amount of free throws a team had in a game. It is calculated as FT / FGA and its estimated weighting is 15%.
 
+***
+
 # What are we testing for?
 
 We are looking to perform a relatively simple analysis: *Do NBA teams have a home court advantage?* We will analyze data from the 2017-2018 season, including playoffs. 
 Looking at home teams and away teams, we will have two samples of:
 
 > Regular Season: 82 games per team * 30 teams / 2 teams play at a time ==> 1230 
+
 > Playoffs: will vary 
 
 We will perform 4 t-tests, one for each of the four factors. Our **null hypothesis** for each test is there is no difference between home games and away games as it relates to the four factors. 
 Our **alternative hypothesis** is that there is a difference. We are using a two sided test with two degrees of freedom. 
+
+***
 
 # Data used
 

@@ -52,9 +52,9 @@ I took the output of third dataframe and fed that into a PostGresSQL database in
 
 After the 2017-2018 data was entered, I had a total of 2,644 rows of data to analyze, or 1,322 games. I then pulled the data into two pandas dataframe, one for home games and another for away games. I plotted histograms of the calculated four factors for home and away games. 
 
-The file are linked below:
+The files are linked below:
 
-1. The file to create the pickle: 
+1. The file to create the pickle: https://github.com/fayadabbasi/NBA_Four_Factors/blob/master/py_script/Create_A_Pickle.py
 1. The functions to create the dataframes: https://github.com/fayadabbasi/NBA_Four_Factors/blob/master/py_script/NBA_Four_Factors_Formulas_Two.py
 2. The file with the script to process the functions and feed into the database: https://github.com/fayadabbasi/NBA_Four_Factors/blob/master/py_script/NBA_Database_File.py
 

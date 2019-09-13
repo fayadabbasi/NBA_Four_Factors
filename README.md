@@ -30,7 +30,7 @@ Looking at home teams and away teams, I will have two samples of:
 > Playoffs: will vary 
 
 I will perform 4 t-tests, one for each of the four factors. My **null hypothesis** for each test is there is no difference between home games and away games as it relates to the four factors. 
-My **alternative hypothesis** is that there is a difference. I am using a two sided t-test with two degrees of freedom. 
+My **alternative hypothesis** is that there is a difference. I am using a two sided t-test as variance to either side of the distribution is relevant. My degrees of freedom are equal to my total sample observations (1,322 home games vs 1,322 away games) minus one but given the size of the samples being tested, I have not made ddof adjustments. 
 
 ***
 
@@ -159,13 +159,13 @@ for y in range(x):
 ```
 
 
-After the 2017-2018 data was entered, I had a total of 2,644 rows of data to analyze. I then pulled the data into two pandas dataframe, one for home games and another for away games. I plotted histograms of the calculated four factors for home and away games. 
+After the 2017-2018 data was entered, I had a total of 2,644 rows of data to analyze, or 1,322 games. I then pulled the data into two pandas dataframe, one for home games and another for away games. I plotted histograms of the calculated four factors for home and away games. 
 
 # Findings
 
-I was surprised to see how my normal distributions appeared, well normal. The Free Throw Rate distributions exhibited a slight right skew but otherwise the distributions appeared textbook. I then performed a t-test for each factor. As stated in the thesis, my bias was that a larger variance between home and away teams existed for hustle factors, such as rebounding and turnovers. What the data showed was the opposite. Turnover percent and offensive rebounding percent had p-values of xxx and xxx, respectively. So despite the travel, road teams apparently get plenty of rest and are ready to play at game time. 
+I was surprised to see how my normal distributions appeared, well normal. The Free Throw Rate distributions exhibited a slight right skew but otherwise the distributions appeared textbook. I then performed a t-test for each factor. As stated in the thesis, my bias was that a larger variance between home and away teams existed for hustle factors, such as rebounding and turnovers. What the data showed was the opposite. Turnover percent and offensive rebounding percent had p-values of 0.26 and 0.67, respectively. So despite the travel, road teams apparently get plenty of rest and are ready to play at game time. Based on the results of the t-test and the p-values, I could not reject my null hypothesis. 
 
-Perhaps equally fascinating was that the effective field goal rate *did* show a materially relevant p-value. Free throw rate p-value was 0.028, resulting in our rejecting our null hypothesis for it as well. The home team apparently does have more comfort shooting in their own arena as indicated by the field goal rate and perhaps the home team does get more free throw attempts (perhaps driven by some favorable referee calls). 
+Perhaps equally fascinating was that the effective field goal rate *did* show a materially relevant p-value at 6.04e-07. Free throw rate p-value was 0.028, resulting in our rejecting our null hypothesis for it as well. The home team apparently does have more comfort shooting in their own arena as indicated by the field goal rate and perhaps the home team does get more free throw attempts (perhaps driven by some favorable referee calls).  
 
 ### Effective Field Goal Percentage
 
@@ -244,7 +244,6 @@ Additional tests to perform could include:
  - SQL Alchemy
  - PostgresSQL 
  - Matplotlib
- - Seaborn
 
 # References
 

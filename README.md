@@ -40,7 +40,7 @@ I first scraped data by team for the 2017-2018 season from www.basketball-refere
 
 1. The first function scraped the specified page and got team box score data. This includes all the box score data for each player and team summaries. Note that I had to create two lists, one for team statistics and a separate one for the player or team name, and then combine them. My output was a pandas dataframe. Below is a sample of the code from the first function. 
 
-```
+```python
 web_template = (f'https://www.basketball-reference.com/boxscores/{year}{month}{day}0{team}.html')
 data = requests.get(web_template)
 soup = BeautifulSoup(data.text, 'html.parser')
@@ -64,7 +64,7 @@ stats['Player'] = player
 
 2. The second function scraped a different part of the page with a summary box score. This included the teams that played, the location the game was played and time, and the final score. The output was a pandas dataframe. 
 
-```
+```python
 web_template = (f'https://www.basketball-reference.com/boxscores/{year}{month}{day}0{team}.html'
 data = requests.get(web_template)
 soup = BeautifulSoup(data.text, 'html.parser')
@@ -101,7 +101,7 @@ teams_scores['Date'] = date_list
 
 3. My third function took the above two dataframes and combined it into the information used for my analysis. Specifically, I needed to take team name from the second dataframe and combine it with the summary statistics from the first dataframe. The output was a pandas dataframe. 
 
-```
+```python
 stats = web_scrape(inputlist)
 teams_scores = team_summary(inputlist)
 test = stats[['Player','MP','FG', 'FGA', '3P', 'FT', 'ORB', 'TOV', 'FTA', 'DRB', 'PTS']]    
@@ -139,7 +139,7 @@ append_data['loc'] = team
 
 I took the output of third dataframe and fed that into a PostGresSQL database in a Docker container. I ran the script on my local machine with an approximate run time of 5 hours, as I found I needed to add a sleep time of 15 seconds between scrapes to avoid getting timed out. 
 
-```
+```python
 engine = create_engine('postgresql+psycopg2://postgres:docker@localhost:5432/nbafourfactor')
 
 with open ('tags.pkl', 'rb') as fp:

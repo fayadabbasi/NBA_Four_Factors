@@ -40,7 +40,7 @@ My **alternative hypothesis** is that there is a difference. I am using a two si
 
 I first scraped data by team for the 2017-2018 season from www.basketball-reference.com. I used pickle to create a series of unique identifiers for each game box score URL. I then set up a script to run a .py file with three functions. 
 
-1. The first function scraped the specified page and got team box score data. This includes all the box score data for each player and team summaries. Note that I had to create two lists, one for team statistics and a separate one for the player or team name, and then combine them. My output was a pandas dataframe. Below is a sample of the code from the first function. 
+1. The first function scraped the specified page and got team box score data. This includes all the box score data for each player and team summaries. Note that I had to create two lists, one for team statistics and a separate one for the player or team name, and then combine them. My output was a pandas dataframe. 
 
 
 2. The second function scraped a different part of the page with a summary box score. This included the teams that played, the location the game was played and time, and the final score. The output was a pandas dataframe. 
@@ -51,6 +51,13 @@ I first scraped data by team for the 2017-2018 season from www.basketball-refere
 I took the output of third dataframe and fed that into a PostGresSQL database in a Docker container. I ran the script on my local machine with an approximate run time of 5 hours, as I found I needed to add a sleep time of 15 seconds between scrapes to avoid getting timed out. 
 
 After the 2017-2018 data was entered, I had a total of 2,644 rows of data to analyze, or 1,322 games. I then pulled the data into two pandas dataframe, one for home games and another for away games. I plotted histograms of the calculated four factors for home and away games. 
+
+The file are linked below:
+
+1. The file to create the pickle: 
+1. The functions to create the dataframes: https://github.com/fayadabbasi/NBA_Four_Factors/blob/master/py_script/NBA_Four_Factors_Formulas_Two.py
+2. The file with the script to process the functions and feed into the database: https://github.com/fayadabbasi/NBA_Four_Factors/blob/master/py_script/NBA_Database_File.py
+
 
 # Findings
 

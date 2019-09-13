@@ -85,7 +85,7 @@ Performing a t-test on the two samples, the t-statistic is 2.2 and the p-value i
 
 ### Offensive Rebound Percent
 
-![alt text](https://github.com/fayadabbasi/NBA_Four_Factors/blob/master/images/orb_histograms.png"offensive rebound percent for home in blue and away in orange")
+![alt text](https://github.com/fayadabbasi/NBA_Four_Factors/blob/master/images/orb_histograms.png "offensive rebound percent for home in blue and away in orange")
 
 ```
 The mean Offensive Rebound Percent for home games is 0.222 and the standard deviation is 0.07029

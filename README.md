@@ -168,7 +168,7 @@ I was surprised to see how my normal distributions appeared, well normal. The Fr
 Perhaps equally fascinating was that the effective field goal rate *did* show a materially relevant p-value. Free throw rate p-value was 0.028, resulting in our rejecting our null hypothesis for it as well. The home team apparently does have more comfort shooting in their own arena as indicated by the field goal rate and perhaps the home team does get more free throw attempts (perhaps driven by some favorable referee calls). 
 
 
-![alt text](https://github.com/fayadabbasi/NBA_Four_Factors/efg_histograms.png "effective FG% for home in blue and away in orange")
+![alt text](https://github.com/fayadabbasi/NBA_Four_Factors/blob/master/efg_histograms.png "effective FG% for home in blue and away in orange")
 
 
 

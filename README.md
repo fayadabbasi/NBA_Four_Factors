@@ -215,7 +215,7 @@ Performing a t-test on the two samples, the t-statistic is -1.13 and the p-value
 
 ### Team leaders 
 
-![alt text](tables_nba/eFG_percent_team_lead_20172018.png "team leaders for effective field goals" )
+![alt text](tables_nba/eFG_team_lead_20172018.png "team leaders for effective field goals" )
 
 ![alt text](tables_nba/ftr_team_lead_20172018.png "team leaders for free throw rate goals")
 
